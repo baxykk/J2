@@ -12,7 +12,8 @@ public class Main {
 	
 	public static void main(String[] args) throws FileNotFoundException {
 		JFrame window = new JFrame("Painter");
-		ShapeGraphics content = new ShapeGraphics(new StringReader(new File(args[0])));;
+		StringReader sr = new StringReader(new File(args[0]));
+		ShapeGraphics content = new ShapeGraphics(sr.getShapes());
 		window.setContentPane(content);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setLocation(120,70);

@@ -2,28 +2,27 @@ package ua.univer.figures.view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.HeadlessException;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JPanel;
-
+import ua.univer.figures.model.AbstractShape;
 import ua.univer.figures.util.AbstractFactory;
 import ua.univer.figures.util.FactoryProducer;
 import ua.univer.figures.util.StringReader;
 
 public class ShapeGraphics extends JPanel {
 
-	StringReader sr;
-	Canvas canvas = new Canvas();
-	Graphics g = canvas.getGraphics();
+	ArrayList<AbstractShape> shapes;
+	Canvas canvas;
+	Graphics g; 
 	
-	public ShapeGraphics(StringReader sr) throws HeadlessException {
-		this.sr = sr;
-
+	public ShapeGraphics(ArrayList<AbstractShape> as) {
+		shapes = as;
+		canvas = new Canvas();
 		setLayout(new BorderLayout());		
 		canvas.setBackground(new Color(200,255,175));
 		JButton button = new JButton("Start");
@@ -39,28 +38,11 @@ public class ShapeGraphics extends JPanel {
 		button.addMouseListener( new MouseAdapter(){
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					if (sr.hasNext()) {	
-						String[] s = sr.readLine();
-						String[] s1 = new String[1];
-						s1[0] = s[0];
-						FactoryProducer factory = new FactoryProducer();
-						Graphics g = canvas.getGraphics();
-						if (Character.isLetter(s[0].charAt(0))) {
-							AbstractFactory af = factory.getFactory(1);
-							AbstractFactory af1= factory.getFactory(2);
-							System.out.println(af);
-							System.out.println(af1);
-							af.getColor(s1);						
-							af1.getShape(s).draw(g);
-						}
-						else {
-							AbstractFactory af = factory.getFactory(2);
-							af.getShape(s).draw(g);
-						}
+					g = canvas.getGraphics();
+					for (AbstractShape ash : shapes) {
+						ash.draw(g);
 					}
-					else {
-						button.setEnabled(false);
-					}
+					button.setEnabled(false);
 				}	
 		});
     	this.add(canvas, BorderLayout.CENTER);

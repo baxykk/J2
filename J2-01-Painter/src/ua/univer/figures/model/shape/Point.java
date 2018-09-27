@@ -40,8 +40,6 @@ public class Point extends Shape {
 	}
 	@Override
 	public void draw(Graphics g) {
-		System.out.println(g);
-		System.out.println(x);
 		g.drawOval(this.x, this.y, width, height);	
 	}
     

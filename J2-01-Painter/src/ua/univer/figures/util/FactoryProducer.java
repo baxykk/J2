@@ -5,10 +5,10 @@ import ua.univer.figures.model.shape.Point;
 public class FactoryProducer {
 	
 	public AbstractFactory getFactory(int i) {
-		if (i == 1) {
+		if (i == 2) {
 			return new ColorFactory();
 		}
-		else if (i == 2) {
+		else if (i == 1) {
 			return new ShapeFactory();
 		}	
 		return null;

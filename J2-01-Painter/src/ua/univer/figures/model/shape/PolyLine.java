@@ -4,9 +4,9 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 public class PolyLine extends Shape {
-	int[] xPoints;
-	int[] yPoints;
-	int nPoints;
+	private int[] xPoints;
+	private int[] yPoints;
+	private int nPoints;
     private int ID;
 
 	public PolyLine(Point[] arrPoints) {	
@@ -27,7 +27,6 @@ public class PolyLine extends Shape {
 		
 		assert xPoints != null && yPoints !=null;
 		assert nPoints > 2;
-		
 		g.drawPolyline(xPoints, yPoints, nPoints);
 	}
 	 

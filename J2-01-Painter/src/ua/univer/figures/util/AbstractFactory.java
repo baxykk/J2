@@ -1,13 +1,11 @@
 package ua.univer.figures.util;
 
 
-import ua.univer.figures.model.color.Colour;
-import ua.univer.figures.model.shape.Point;
-import ua.univer.figures.model.shape.Shape;
+import ua.univer.figures.model.AbstractShape;
 
 public abstract class AbstractFactory {
 
-	abstract public Colour getColor(String[] s);
-	abstract public Shape getShape(String[] s);
+	abstract public AbstractShape getShape(String[] s);
+	abstract public AbstractShape getColoredShape(String[] s) ;
 	
 }
