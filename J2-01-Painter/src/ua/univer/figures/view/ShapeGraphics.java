@@ -25,7 +25,7 @@ public class ShapeGraphics extends JPanel {
 		this.sr = sr;
 
 		setLayout(new BorderLayout());		
-		canvas.setBackground(Color.GREEN);
+		canvas.setBackground(new Color(200,255,175));
 		JButton button = new JButton("Start");
 
 /*		button.addActionListener( e->{

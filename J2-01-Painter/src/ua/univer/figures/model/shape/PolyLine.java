@@ -8,9 +8,10 @@ public class PolyLine extends Shape {
 	int[] yPoints;
 	int nPoints;
 
-	public PolyLine(Point[] arrPoints) {
-		super();	
+	public PolyLine(Point[] arrPoints) {	
 		nPoints = arrPoints.length;
+		xPoints = new int[arrPoints.length];
+		yPoints = new int[arrPoints.length];
 		
 		for (int i = 0; i < arrPoints.length; i++) {
 			xPoints[i] = arrPoints[i].getX();
@@ -20,6 +21,12 @@ public class PolyLine extends Shape {
 
 	@Override
 	public void draw(Graphics g) {
+		
+		assert xPoints != null && yPoints !=null;
+		assert nPoints > 2;
+		
+		for (int x:xPoints) System.out.println(x);
+		
 		g.drawPolyline(xPoints, yPoints, nPoints);
 	}
 	 
