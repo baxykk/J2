@@ -1,9 +1,8 @@
 package ua.univer.figures.model.shape;
 
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+import ua.univer.figures.model.AbstractShape;
 
-public abstract class Shape {
+public abstract class Shape implements AbstractShape{
 	 static int count;
 	 public Shape() {
 		count++;
@@ -12,5 +11,4 @@ public abstract class Shape {
 		 System.out.println(this);
 	 };
 	 
-	 public abstract void draw(Graphics g);
 }

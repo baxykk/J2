@@ -7,8 +7,11 @@ public class PolyLine extends Shape {
 	int[] xPoints;
 	int[] yPoints;
 	int nPoints;
+    private int ID;
 
 	public PolyLine(Point[] arrPoints) {	
+		super();
+		ID = count;
 		nPoints = arrPoints.length;
 		xPoints = new int[arrPoints.length];
 		yPoints = new int[arrPoints.length];
@@ -24,8 +27,6 @@ public class PolyLine extends Shape {
 		
 		assert xPoints != null && yPoints !=null;
 		assert nPoints > 2;
-		
-		for (int x:xPoints) System.out.println(x);
 		
 		g.drawPolyline(xPoints, yPoints, nPoints);
 	}

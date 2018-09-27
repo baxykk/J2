@@ -4,9 +4,12 @@ import java.awt.Graphics;
 
 public class Line extends Shape implements Cloneable {
 	public Point Begin, End;
-
+    private int ID;
+	
 	// adHoc
 	public Line(Point begin, Point end) {
+		super();
+		ID = count;
 		Begin = begin;
 		End = end;
 	}
